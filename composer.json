@@ -1,0 +1,17 @@
+{
+    "name": "farid",
+    "require": {
+        "yiisoft/yii2": "~2.0.15"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "require-dev": {
+        "codeception/codeception": "2.1.*",
+        "codeception/specify": "*",
+        "codeception/verify": "*"
+    }
+}

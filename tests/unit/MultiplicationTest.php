@@ -20,10 +20,8 @@ class MultiplicationTest extends \Codeception\TestCase\Test {
     // tests
     public function testMultiplication() {
         $five = new Dollar(5);
-        $product = $five->times(2);
-        $this->assertEquals(10, $product->amount);
-        $product=$five->times(3);
-        $this->assertEquals(15, $product->amount);
+        $this->assertEquals(new Dollar(10), $five->times(2));
+        $this->assertEquals(new Dollar(15), $five->times(3));
     }
 
 }

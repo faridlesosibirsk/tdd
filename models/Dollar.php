@@ -4,7 +4,7 @@ namespace app\models;
 
 class Dollar {
 
-    public $amount;
+    private $amount;
 
     public function __construct(int $amount) {
         return $this->amount = $amount;

@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Dollar;
+use app\models\Franc;
 
 class EqualityTest extends \Codeception\TestCase\Test
 {
@@ -22,5 +23,7 @@ class EqualityTest extends \Codeception\TestCase\Test
     {
         $this->assertTrue((new Dollar(5))->equals(new Dollar(5)));
         $this->assertFalse((new Dollar(5))->equals(new Dollar(6)));
+        $this->assertTrue((new Franc(5))->equals(new Franc(5)));
+        $this->assertFalse((new Franc(5))->equals(new Franc(6)));
     }
 }

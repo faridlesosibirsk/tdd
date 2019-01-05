@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Franc;
+use app\models\Money;
 
 class FrancMultiplicationTest extends \Codeception\TestCase\Test {
 
@@ -19,9 +19,9 @@ class FrancMultiplicationTest extends \Codeception\TestCase\Test {
 
     // tests
     public function testFrancMultiplication() {
-        $five = new Franc(5);
-        $this->assertEquals(new Franc(10), $five->times(2));
-        $this->assertEquals(new Franc(15), $five->times(3));
+        $five = Money::franc(5);
+        $this->assertEquals(Money::franc(10), $five->times(2));
+        $this->assertEquals(Money::franc(15), $five->times(3));
     }
 
 }

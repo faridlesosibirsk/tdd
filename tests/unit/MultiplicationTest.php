@@ -1,6 +1,7 @@
 <?php
 
-use app\models\Dollar;
+//use app\models\Dollar;
+use app\models\Money;
 
 class MultiplicationTest extends \Codeception\TestCase\Test {
 
@@ -19,9 +20,9 @@ class MultiplicationTest extends \Codeception\TestCase\Test {
 
     // tests
     public function testMultiplication() {
-        $five = new Dollar(5);
-        $this->assertEquals(new Dollar(10), $five->times(2));
-        $this->assertEquals(new Dollar(15), $five->times(3));
+        $five = Money::dollar(5);
+        $this->assertEquals(Money::dollar(10), $five->times(2));
+        $this->assertEquals(Money::dollar(15), $five->times(3));
     }
 
 }

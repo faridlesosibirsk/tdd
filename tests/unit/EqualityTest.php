@@ -1,7 +1,8 @@
 <?php
 
-use app\models\Dollar;
+//use app\models\Dollar;
 use app\models\Franc;
+use app\models\Money;
 
 class EqualityTest extends \Codeception\TestCase\Test
 {
@@ -21,10 +22,10 @@ class EqualityTest extends \Codeception\TestCase\Test
     // tests
     public function testEquality()
     {
-        $this->assertTrue((new Dollar(5))->equals(new Dollar(5)));
-        $this->assertFalse((new Dollar(5))->equals(new Dollar(6)));
-        $this->assertTrue((new Franc(5))->equals(new Franc(5)));
-        $this->assertFalse((new Franc(5))->equals(new Franc(6)));
-        $this->assertFalse((new Franc(5))->equals(new Dollar(5)));
+        $this->assertTrue(Money::dollar(5)->equals(Money::dollar(5)));
+        $this->assertFalse(Money::dollar(5)->equals(Money::dollar(6)));
+        $this->assertTrue(Money::franc(5)->equals(Money::franc(5)));
+        $this->assertFalse(Money::franc(5)->equals(Money::franc(6)));
+        $this->assertFalse(Money::franc(5)->equals(Money::dollar(5)));
     }
 }

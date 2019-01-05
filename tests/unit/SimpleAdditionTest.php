@@ -25,7 +25,7 @@ class SimpleAdditionTest extends \Codeception\TestCase\Test {
         $five= Money::dollar(5);
         $sum = $five->plus($five);
         $bank = new Bank();
-        $reduced = $bank->reduced($sum, "USD");
+        $reduced = $bank->reduce($sum, "USD");
         $this->assertEquals(Money::dollar(10), $reduced);
     }
 

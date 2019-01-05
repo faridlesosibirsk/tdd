@@ -4,7 +4,8 @@ namespace app\models;
 
 class Money implements Expression {
 
-    protected $amount;
+    //protected $amount;
+    public $amount;
     protected $currency;
 
     public function toString(): string {
@@ -38,7 +39,11 @@ class Money implements Expression {
     }
 
     function plus(Money $addend): Expression {
-        return new Money($this->amount + $addend->amount, $this->currency);
+        return new Sum($this, $addend);
+        //return new Money($this->amount + $addend->amount, $this->currency);
+    }
+    public function reduce(String $to):Money{
+        return $this;
     }
 
 }

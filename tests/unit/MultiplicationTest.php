@@ -1,6 +1,5 @@
 <?php
 
-//use app\models\Dollar;
 use app\models\Money;
 
 class MultiplicationTest extends \Codeception\TestCase\Test {

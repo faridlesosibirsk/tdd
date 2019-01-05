@@ -4,7 +4,6 @@ namespace app\models;
 
 class Money implements Expression {
 
-    //protected $amount;
     public $amount;
     protected $currency;
 
@@ -12,7 +11,7 @@ class Money implements Expression {
         return $this->amount + " " + $this->currency;
     }
 
-    public function times(int $multiplier): Money {
+    public function times(int $multiplier): Expression {
         return new Money($this->amount * $multiplier, $this->currency);
     }
 
@@ -26,11 +25,11 @@ class Money implements Expression {
         return $this->amount == $money->amount && $this->currency() == $money->currency();
     }
 
-    static function dollar(int $amount): Money {
+    static function dollar(int $amount): Expression {
         return new Money($amount, "USD");
     }
 
-    static function franc(int $amount): Money {
+    static function franc(int $amount): Expression {
         return new Money($amount, "CHF");
     }
 
@@ -38,9 +37,8 @@ class Money implements Expression {
         return $this->currency;
     }
 
-    function plus(Money $addend): Expression {
+    public function plus(Expression $addend): Expression {
         return new Sum($this, $addend);
-        //return new Money($this->amount + $addend->amount, $this->currency);
     }
 
     public function reduce(Bank $bank, String $to): Money {

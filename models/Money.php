@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Money {
+class Money implements Expression {
 
     protected $amount;
     protected $currency;
@@ -10,7 +10,7 @@ class Money {
     public function toString(): string {
         return $this->amount + " " + $this->currency;
     }
-    
+
     public function times(int $multiplier): Money {
         return new Money($this->amount * $multiplier, $this->currency);
     }
@@ -22,8 +22,7 @@ class Money {
 
     public function equals(Object $object): bool {
         $money = $object;
-        return $this->amount == $money->amount 
-                && $this->currency() == $money->currency();
+        return $this->amount == $money->amount && $this->currency() == $money->currency();
     }
 
     static function dollar(int $amount): Money {
@@ -36,6 +35,10 @@ class Money {
 
     function Currency(): string {
         return $this->currency;
+    }
+
+    function plus(Money $addend): Expression {
+        return new Money($this->amount + $addend->amount, $this->currency);
     }
 
 }

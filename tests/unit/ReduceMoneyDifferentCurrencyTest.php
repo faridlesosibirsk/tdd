@@ -1,9 +1,9 @@
 <?php
 
-use app\models\Money;
 use app\models\Bank;
+use app\models\Money;
 
-class ReduceMoneyTest extends \Codeception\TestCase\Test {
+class ReduceMoneyDifferentCurrencyTest extends \Codeception\TestCase\Test {
 
     /**
      * @var \UnitTester
@@ -19,10 +19,10 @@ class ReduceMoneyTest extends \Codeception\TestCase\Test {
     }
 
     // tests
-    public function testReduceMoney() {
+    public function testReduceMoneyDifferentCurrency() {
         $bank = new Bank();
-        $bank->addRate("USD", "USD", 1);
-        $result = $bank->reduce(Money::dollar(1), "USD");
+        $bank->addRate("CHF", "USD", 2);
+        $result = $bank->reduce(Money::franc(2), "USD");
         $this->assertEquals(Money::dollar(1), $result);
     }
 

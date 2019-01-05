@@ -3,5 +3,5 @@
 namespace app\models;
 
 interface Expression {
-    function reduce (String $to):Money;
+    function reduce (Bank $bank, String $to):Money;
 }

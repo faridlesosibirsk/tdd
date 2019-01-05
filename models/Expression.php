@@ -7,4 +7,6 @@ interface Expression {
     function reduce(Bank $bank, String $to): Money;
 
     function plus(Expression $addend): Expression;
+    
+    function times(int $multiplier): Expression;
 }
